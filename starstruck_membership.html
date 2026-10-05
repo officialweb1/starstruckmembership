@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starstruck Entertainment — Official Fan Membership</title>
+<link rel="icon" href="https://cdn.phototourl.com/member/2026-10-05-ef53ca8b-4308-4ecc-85e9-9c81f573519a.webp">
+<style>
+  :root{
+    --bg:#f4f7fc;
+    --card:#ffffff;
+    --ink:#16203a;
+    --muted:#6b7688;
+    --line:#e5eaf3;
+    --gold:#c8992e;
+    --gold-2:#e6c46a;
+    --gold-soft:#fdf7e8;
+    --green:#1f9d63;
+    --green-soft:#e9f8f0;
+    --radius:18px;
+    --shadow:0 12px 34px rgba(22,32,58,.09);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    font-family:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1100px 520px at 8% -12%, #fff6e2 0%, rgba(255,246,226,0) 62%),
+      radial-gradient(900px 520px at 102% -6%, #eaf1ff 0%, rgba(234,241,255,0) 58%),
+      var(--bg);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---------- HEADER (management only) ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:1020px; margin:0 auto; padding:14px 22px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .logo-badge{
+    width:56px; height:56px; flex:0 0 56px;
+    border-radius:50%;
+    background:#fff;
+    border:2px solid var(--gold-2);
+    box-shadow:0 6px 18px rgba(200,153,46,.22);
+    display:grid; place-items:center;
+    overflow:hidden;
+  }
+  .logo-badge img{width:100%; height:100%; object-fit:cover; display:block}
+
+  .brand-text h1{
+    font-size:1.15rem; letter-spacing:.4px; font-weight:800;
+    background:linear-gradient(90deg,#1b2440,#c8992e);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .brand-text p{
+    font-size:.72rem; letter-spacing:2.2px; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin-top:2px;
+  }
+
+  .header-badge{
+    margin-left:auto;
+    font-size:.7rem; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:#8a6a12; background:var(--gold-soft);
+    border:1px solid #f0e0b4; padding:7px 14px; border-radius:999px;
+    white-space:nowrap;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{
+    width:100%; max-width:1020px; margin:0 auto;
+    padding:34px 22px 60px; flex:1;
+  }
+
+  /* ---------- STEPS ---------- */
+  .steps{
+    display:flex; align-items:center; justify-content:center;
+    gap:10px; margin-bottom:26px; flex-wrap:wrap;
+  }
+  .step{
+    display:flex; align-items:center; gap:9px;
+    font-size:.8rem; font-weight:700; letter-spacing:.5px;
+    color:var(--muted);
+    background:#fff; border:1px solid var(--line);
+    padding:9px 18px; border-radius:999px;
+    transition:.25s ease;
+  }
+  .step span{
+    width:22px; height:22px; border-radius:50%;
+    display:grid; place-items:center;
+    background:#eef1f7; color:var(--muted);
+    font-size:.72rem; font-weight:800;
+    transition:.25s ease;
+  }
+  .step.active{
+    color:#7a5c0d; border-color:#eed9a4; background:var(--gold-soft);
+    box-shadow:0 6px 16px rgba(200,153,46,.14);
+  }
+  .step.active span{background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:#fff}
+  .step.done{color:#0f7a4c; border-color:#c8ecd9; background:var(--green-soft)}
+  .step.done span{background:var(--green); color:#fff}
+
+  /* ---------- CARD ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:38px 40px 40px;
+    animation:rise .45s cubic-bezier(.2,.8,.3,1) both;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(14px)}
+    to{opacity:1; transform:translateY(0)}
+  }
+  .hidden{display:none !important}
+
+  .card-head{margin-bottom:28px}
+  .eyebrow{
+    display:inline-block;
+    font-size:.68rem; font-weight:800; letter-spacing:2.4px; text-transform:uppercase;
+    color:#8a6a12; background:var(--gold-soft);
+    border:1px solid #f0e0b4; padding:6px 13px; border-radius:999px;
+    margin-bottom:16px;
+  }
+  .card-head h2{
+    font-size:1.7rem; line-height:1.25; letter-spacing:-.4px; font-weight:800;
+  }
+  .card-head > p{
+    color:var(--muted); margin-top:9px; font-size:.95rem; line-height:1.6; max-width:620px;
+  }
+
+  /* ---------- ARTIST HERO (page 1) ---------- */
+  .member-hero{
+    display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .member-photo{
+    width:118px; height:118px; flex:0 0 118px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid var(--gold-2);
+    box-shadow:0 12px 30px rgba(200,153,46,.3);
+    background:#fff;
+  }
+  .member-photo img{width:100%; height:100%; object-fit:cover; display:block}
+  .member-hero-text{flex:1; min-width:250px}
+  .member-hero-text h2{
+    font-size:1.7rem; line-height:1.25; letter-spacing:-.4px; font-weight:800;
+  }
+  .member-hero-text p{
+    color:var(--muted); margin-top:9px; font-size:.95rem; line-height:1.6; max-width:600px;
+  }
+
+  /* ---------- FORM ---------- */
+  .grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  }
+  .field{display:flex; flex-direction:column}
+  .field.full{grid-column:1 / -1}
+
+  .field label{
+    font-size:.8rem; font-weight:700; letter-spacing:.4px;
+    color:#33405c; margin-bottom:8px;
+  }
+  .field label .req{color:#d9534f; margin-left:2px}
+
+  .input-shell{
+    display:flex; align-items:center;
+    border:1.5px solid var(--line);
+    background:#fbfcfe;
+    border-radius:12px;
+    transition:.2s ease;
+    overflow:hidden;
+  }
+  .input-shell:focus-within{
+    border-color:var(--gold);
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(200,153,46,.13);
+  }
+  .prefix{
+    padding:0 12px 0 15px;
+    font-size:.92rem; font-weight:700; color:#8a6a12;
+    border-right:1px solid var(--line);
+    line-height:48px; white-space:nowrap;
+    background:var(--gold-soft);
+    align-self:stretch; display:flex; align-items:center;
+  }
+
+  input, select{
+    width:100%; border:none; outline:none; background:transparent;
+    font-family:inherit; font-size:.95rem; color:var(--ink);
+    padding:14px 15px;
+  }
+  input::placeholder{color:#a9b2c2}
+  select{cursor:pointer; appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7688' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat; background-position:right 15px center;
+    padding-right:40px;
+  }
+
+  .dob{display:grid; grid-template-columns:1.6fr 1fr; gap:12px}
+
+  .err{
+    color:#d9534f; font-size:.76rem; font-weight:600;
+    margin-top:6px; min-height:14px; display:block;
+  }
+  .field.invalid .input-shell{border-color:#e8a7a5; background:#fff7f7}
+  .field.invalid .prefix{background:#fdeeee; color:#b8413d}
+
+  /* ---------- NOTE ---------- */
+  .note{
+    grid-column:1 / -1;
+    display:flex; gap:14px; align-items:flex-start;
+    background:linear-gradient(135deg,#fdf7e8,#fffdf7);
+    border:1px solid #f0e0b4;
+    border-left:4px solid var(--gold);
+    border-radius:14px;
+    padding:18px 20px;
+    margin-top:4px;
+  }
+  .note .star{
+    font-size:1.15rem; line-height:1;
+    filter:drop-shadow(0 2px 4px rgba(200,153,46,.4));
+  }
+  .note h4{
+    font-size:.86rem; font-weight:800; letter-spacing:.3px; color:#7a5c0d;
+    margin-bottom:5px; text-transform:uppercase;
+  }
+  .note p{font-size:.87rem; color:#6d5a24; line-height:1.65}
+  .note p b{color:#5d4a15}
+
+  /* ---------- BUTTONS ---------- */
+  .actions{
+    margin-top:28px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:inherit; font-size:.95rem; font-weight:800; letter-spacing:.4px;
+    border:none; border-radius:12px; cursor:pointer;
+    padding:16px 34px;
+    transition:.22s ease;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  }
+  .btn-primary{
+    color:#fff;
+    background:linear-gradient(135deg,#c8992e,#e0b74f 55%,#c8992e);
+    box-shadow:0 10px 24px rgba(200,153,46,.34);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(200,153,46,.44)}
+  .btn-primary:active{transform:translateY(0)}
+  .btn-ghost{
+    background:#fff; color:#44506b; border:1.5px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:#cdd5e3; background:#fafbfe}
+  .btn-block{width:100%}
+
+  .secure{
+    margin-left:auto; font-size:.76rem; color:var(--muted);
+    display:flex; align-items:center; gap:7px; font-weight:600;
+  }
+  .secure svg{width:14px; height:14px; stroke:#1f9d63}
+
+  /* ---------- PLANS (5 tiers) ---------- */
+  .plans{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(168px, 1fr));
+    gap:14px;
+    align-items:stretch;
+  }
+  .plan{
+    position:relative;
+    background:#fff;
+    border:1.5px solid var(--line);
+    border-radius:16px;
+    padding:24px 16px 18px;
+    display:flex; flex-direction:column;
+    cursor:pointer;
+    transition:.25s cubic-bezier(.2,.8,.3,1);
+    text-align:left;
+    font-family:inherit;
+  }
+  .plan:hover{
+    border-color:#8fd4b0;
+    transform:translateY(-4px);
+    box-shadow:0 16px 34px rgba(22,32,58,.1);
+  }
+  .plan.selected{
+    border-color:var(--green);
+    background:linear-gradient(180deg,#f3fbf7,#fff);
+    box-shadow:0 16px 36px rgba(31,157,99,.18);
+  }
+  .plan.selected::after{
+    content:"✓";
+    position:absolute; top:12px; right:12px;
+    width:24px; height:24px; border-radius:50%;
+    background:linear-gradient(135deg,var(--green),#2bb673);
+    color:#fff; font-size:.75rem; font-weight:900;
+    display:grid; place-items:center;
+    box-shadow:0 4px 10px rgba(31,157,99,.4);
+  }
+
+  .plan-tier{
+    font-size:.6rem; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:8px;
+  }
+  .plan-name{
+    font-size:1.12rem; font-weight:800; letter-spacing:-.2px; margin-bottom:12px;
+  }
+  .plan-price{
+    display:flex; align-items:baseline; gap:2px;
+    padding-bottom:14px; margin-bottom:14px;
+    border-bottom:1px dashed var(--line);
+  }
+  .plan-price .cur{font-size:1rem; font-weight:800; color:var(--gold)}
+  .plan-price .amt{font-size:1.55rem; font-weight:800; letter-spacing:-.8px; color:var(--ink)}
+  .plan-price .per{display:block; font-size:.66rem; color:var(--muted); font-weight:600; margin-left:4px}
+
+  .plan ul{list-style:none; display:flex; flex-direction:column; gap:10px; flex:1}
+  .plan li{
+    font-size:.78rem; color:#4b5768; line-height:1.5;
+    display:flex; gap:8px; align-items:flex-start;
+  }
+  .plan li::before{
+    content:"";
+    flex:0 0 14px; height:14px; margin-top:2px;
+    border-radius:50%;
+    background:var(--gold-soft) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23c8992e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/10px no-repeat;
+    border:1px solid #f0e0b4;
+  }
+
+  .plan .choose{
+    margin-top:18px;
+    width:100%;
+    padding:11px 8px;
+    border-radius:10px;
+    border:1.5px solid var(--line);
+    background:#fbfcfe;
+    color:#44506b;
+    font-family:inherit; font-weight:800; font-size:.76rem; letter-spacing:.4px;
+    transition:.2s ease;
+    pointer-events:none;
+  }
+  .plan:hover .choose{border-color:#8fd4b0; color:#0f7a4c; background:var(--green-soft)}
+  .plan.selected .choose{
+    background:linear-gradient(135deg,#1f9d63,#2bb673);
+    border-color:transparent; color:#fff;
+    box-shadow:0 8px 18px rgba(31,157,99,.32);
+  }
+
+  /* ---------- MODAL ---------- */
+  .modal-backdrop{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(20,28,46,.5);
+    backdrop-filter:blur(5px);
+    display:grid; place-items:center;
+    padding:22px;
+    animation:fade .25s ease both;
+  }
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+
+  .modal{
+    width:100%; max-width:470px;
+    background:#fff;
+    border-radius:20px;
+    padding:36px 34px 32px;
+    text-align:center;
+    box-shadow:0 30px 70px rgba(12,20,38,.35);
+    animation:pop .35s cubic-bezier(.2,.9,.3,1.2) both;
+    position:relative;
+    overflow:hidden;
+  }
+  .modal::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:5px;
+    background:linear-gradient(90deg,#c8992e,#e6c46a,#c8992e);
+  }
+  @keyframes pop{
+    from{opacity:0; transform:translateY(18px) scale(.96)}
+    to{opacity:1; transform:translateY(0) scale(1)}
+  }
+
+  .modal-icon{
+    width:66px; height:66px; margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--gold-soft);
+    border:1px solid #f0e0b4;
+    display:grid; place-items:center;
+    font-size:1.7rem;
+  }
+  .modal h3{font-size:1.3rem; font-weight:800; letter-spacing:-.3px; margin-bottom:12px}
+  .modal p{font-size:.92rem; color:var(--muted); line-height:1.7; margin-bottom:8px}
+  .modal p b{color:var(--ink)}
+  .modal .plan-tag{
+    display:inline-block; margin:14px 0 20px;
+    font-size:.78rem; font-weight:800; letter-spacing:1.2px; text-transform:uppercase;
+    color:#7a5c0d; background:var(--gold-soft);
+    border:1px solid #f0e0b4; border-radius:999px;
+    padding:8px 18px;
+  }
+  .modal .micro{
+    font-size:.74rem; color:#93a0b3; margin-top:16px; line-height:1.6;
+  }
+
+  /* ---------- CLOSED ---------- */
+  .closed{
+    text-align:center; padding:22px 10px 10px;
+  }
+  .closed-badge{
+    width:88px; height:88px; margin:0 auto 24px;
+    border-radius:50%;
+    background:var(--green-soft);
+    border:1px solid #c8ecd9;
+    display:grid; place-items:center;
+    font-size:2.3rem;
+    animation:pop .5s cubic-bezier(.2,.9,.3,1.2) both;
+  }
+  .closed h2{font-size:1.75rem; font-weight:800; letter-spacing:-.4px; margin-bottom:12px}
+  .closed .lead{
+    color:var(--muted); font-size:.98rem; line-height:1.7;
+    max-width:560px; margin:0 auto 26px;
+  }
+  .closed .lead b{color:var(--ink)}
+
+  .summary{
+    max-width:520px; margin:0 auto;
+    background:#fbfcfe; border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px; text-align:left;
+  }
+  .summary h4{
+    font-size:.7rem; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:16px;
+  }
+  .summary-row{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:10px 0; border-bottom:1px dashed var(--line);
+    font-size:.87rem;
+  }
+  .summary-row:last-child{border-bottom:none}
+  .summary-row .k{color:var(--muted); font-weight:600}
+  .summary-row .v{color:var(--ink); font-weight:700; text-align:right}
+  .summary-row .v.gold{color:#8a6a12}
+
+  .closed .foot{
+    margin-top:26px; font-size:.82rem; color:#93a0b3; line-height:1.7;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    border-top:1px solid var(--line);
+    background:rgba(255,255,255,.7);
+    padding:22px;
+    text-align:center;
+  }
+  .site-footer p{
+    font-size:.76rem; color:var(--muted); line-height:1.8;
+  }
+  .site-footer strong{color:#4b5768}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:820px){
+    .card{padding:30px 24px 32px}
+    .grid{grid-template-columns:1fr; gap:16px}
+    .header-badge{display:none}
+    .plans{grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:16px}
+    .plan{padding:26px 20px 20px}
+    .plan-name{font-size:1.2rem}
+    .plan-price .amt{font-size:1.75rem}
+    .plan li{font-size:.82rem}
+  }
+  @media (max-width:520px){
+    .wrap{padding:24px 15px 46px}
+    .card{padding:26px 18px 28px; border-radius:16px}
+    .brand-text h1{font-size:1rem}
+    .logo-badge{width:48px; height:48px; flex-basis:48px}
+    .btn{width:100%; padding:15px 20px}
+    .secure{margin-left:0; width:100%; justify-content:center}
+    .modal{padding:30px 22px 26px}
+    .closed h2{font-size:1.4rem}
+    .summary{padding:18px}
+    .summary-row{font-size:.82rem}
+    .dob{grid-template-columns:1fr 1fr}
+    .member-hero{flex-direction:column; text-align:center; gap:18px}
+    .member-photo{width:104px; height:104px; flex-basis:104px}
+    .member-hero-text{min-width:0}
+    .member-hero-text h2{font-size:1.3rem}
+    .card-head > p{margin-left:auto; margin-right:auto}
+    .plans{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER — management only ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-badge">
+      <img src="https://cdn.phototourl.com/member/2026-10-05-ef53ca8b-4308-4ecc-85e9-9c81f573519a.webp" alt="Starstruck Entertainment Logo">
+    </div>
+    <div class="brand-text">
+      <h1>Starstruck Entertainment</h1>
+      <p>Official Fan Membership</p>
+    </div>
+    <div class="header-badge">Backstage Access</div>
+  </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="wrap">
+
+  <!-- STEP INDICATOR -->
+  <div class="steps" id="steps">
+    <div class="step active" id="step1"><span>1</span> Your details</div>
+    <div class="step" id="step2"><span>2</span> Membership type</div>
+  </div>
+
+  <!-- ============ PAGE 1 — APPLICATION FORM ============ -->
+  <section class="card" id="page-form">
+    <div class="card-head">
+      <span class="eyebrow">Application Form</span>
+
+      <div class="member-hero">
+        <div class="member-photo">
+          <img src="https://cdn.phototourl.com/member/2026-10-05-d80f7291-59b7-450d-a73f-e39488ed6a85.jpg" alt="Blake Shelton">
+        </div>
+        <div class="member-hero-text">
+          <h2>Application Form for Blake Shelton Membership Card</h2>
+          <p>Fill in your details below to apply for your official Starstruck Entertainment membership card.</p>
+        </div>
+      </div>
+    </div>
+
+    <form id="memberForm" novalidate>
+      <div class="grid">
+
+        <!-- Full name -->
+        <div class="field full" id="f-name">
+          <label for="name">Full name <span class="req">*</span></label>
+          <div class="input-shell">
+            <input type="text" id="name" name="name" placeholder="e.g. Jane Marie Doe" autocomplete="name">
+          </div>
+          <small class="err" id="err-name"></small>
+        </div>
+
+        <!-- Email -->
+        <div class="field" id="f-email">
+          <label for="email">Email address <span class="req">*</span></label>
+          <div class="input-shell">
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <small class="err" id="err-email"></small>
+        </div>
+
+        <!-- Phone -->
+        <div class="field" id="f-phone">
+          <label for="phone">Phone number (USA) <span class="req">*</span></label>
+          <div class="input-shell">
+            <span class="prefix">🇺🇸 +1</span>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" inputmode="numeric" autocomplete="tel-national" maxlength="14">
+          </div>
+          <small class="err" id="err-phone"></small>
+        </div>
+
+        <!-- State -->
+        <div class="field full" id="f-state">
+          <label for="state">State <span class="req">*</span></label>
+          <div class="input-shell">
+            <select id="state" name="state">
+              <option value="">Select your state</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Maryland</option>
+              <option>Massachusetts</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virginia</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
+              <option>District of Columbia</option>
+            </select>
+          </div>
+          <small class="err" id="err-state"></small>
+        </div>
+
+        <!-- Date of birth -->
+        <div class="field full" id="f-dob">
+          <label>Date of birth (month &amp; day) <span class="req">*</span></label>
+          <div class="dob">
+            <div class="input-shell">
+              <select id="month" name="month">
+                <option value="">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+            <div class="input-shell">
+              <input type="number" id="day" name="day" placeholder="Day" min="1" max="31" inputmode="numeric">
+            </div>
+          </div>
+          <small class="err" id="err-dob"></small>
+        </div>
+
+        <!-- NOTE -->
+        <div class="note">
+          <div class="star">⭐</div>
+          <div>
+            <h4>Important — What your card unlocks</h4>
+            <p>
+              By getting this official membership card you will receive <b>access to backstage events</b>,
+              priority entry to shows, meet &amp; greet opportunities, exclusive fan updates and much more.
+              Your application is reviewed by the Starstruck Entertainment management team.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary" id="proceedBtn">
+          Proceed to Membership Types
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div class="secure">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Your information is safe &amp; private
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============ PAGE 2 — PLANS ============ -->
+  <section class="card hidden" id="page-plans">
+    <div class="card-head">
+      <span class="eyebrow">Step 2 of 2</span>
+      <h2>Select your membership type</h2>
+      <p>Choose the membership that suits you best. Tap any card below to select it and continue.</p>
+    </div>
+
+    <div class="plans" id="plans">
+
+      <!-- BRONZE -->
+      <button type="button" class="plan" data-plan="Bronze" data-price="$1,500">
+        <div class="plan-tier">Tier 01</div>
+        <div class="plan-name">Bronze</div>
+        <div class="plan-price">
+          <span class="cur">$</span><span class="amt">1,500</span><span class="per">/ membership</span>
+        </div>
+        <ul>
+          <li>Access to exclusive fan community / private group</li>
+          <li>10% discount on official merchandise</li>
+        </ul>
+        <div class="choose">Select Bronze</div>
+      </button>
+
+      <!-- SILVER -->
+      <button type="button" class="plan" data-plan="Silver" data-price="$3,000">
+        <div class="plan-tier">Tier 02</div>
+        <div class="plan-name">Silver</div>
+        <div class="plan-price">
+          <span class="cur">$</span><span class="amt">3,000</span><span class="per">/ membership</span>
+        </div>
+        <ul>
+          <li>Priority access to ticket presales</li>
+          <li>15% discount on official merchandise</li>
+        </ul>
+        <div class="choose">Select Silver</div>
+      </button>
+
+      <!-- GOLD -->
+      <button type="button" class="plan" data-plan="Gold" data-price="$5,000">
+        <div class="plan-tier">Tier 03</div>
+        <div class="plan-name">Gold</div>
+        <div class="plan-price">
+          <span class="cur">$</span><span class="amt">5,000</span><span class="per">/ membership</span>
+        </div>
+        <ul>
+          <li>Invitation to annual members-only online event</li>
+          <li>20% discount on official merchandise</li>
+        </ul>
+        <div class="choose">Select Gold</div>
+      </button>
+
+      <!-- DIAMOND -->
+      <button type="button" class="plan" data-plan="Diamond" data-price="$9,000">
+        <div class="plan-tier">Tier 04</div>
+        <div class="plan-name">Diamond</div>
+        <div class="plan-price">
+          <span class="cur">$</span><span class="amt">9,000</span><span class="per">/ membership</span>
+        </div>
+        <ul>
+          <li>Priority seating / VIP upgrade opportunities (when available)</li>
+          <li>25% discount on official merchandise</li>
+        </ul>
+        <div class="choose">Select Diamond</div>
+      </button>
+
+      <!-- PLATINUM -->
+      <button type="button" class="plan" data-plan="Platinum" data-price="$10,500">
+        <div class="plan-tier">Tier 05</div>
+        <div class="plan-name">Platinum</div>
+        <div class="plan-price">
+          <span class="cur">$</span><span class="amt">10,500</span><span class="per">/ membership</span>
+        </div>
+        <ul>
+          <li>One personalized experience (e.g. video shout-out or custom request, subject to availability)</li>
+          <li>30% discount on official merchandise</li>
+        </ul>
+        <div class="choose">Select Platinum</div>
+      </button>
+
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-ghost" id="backBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to details
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 3 — CLOSED ============ -->
+  <section class="card hidden" id="page-closed">
+    <div class="closed">
+      <div class="closed-badge">✓</div>
+      <h2>Application in Progress</h2>
+      <p class="lead">
+        <b>Your application has been received.</b><br>
+        Please make the payment to the management for further information and procedures to get your membership card and backstage access.
+      </p>
+
+      <div class="summary">
+        <h4>Application Summary</h4>
+        <div class="summary-row"><span class="k">Full name</span><span class="v" id="s-name">—</span></div>
+        <div class="summary-row"><span class="k">Email address</span><span class="v" id="s-email">—</span></div>
+        <div class="summary-row"><span class="k">Phone number</span><span class="v" id="s-phone">—</span></div>
+        <div class="summary-row"><span class="k">State</span><span class="v" id="s-state">—</span></div>
+        <div class="summary-row"><span class="k">Date of birth</span><span class="v" id="s-dob">—</span></div>
+        <div class="summary-row"><span class="k">Membership type</span><span class="v gold" id="s-plan">—</span></div>
+      </div>
+
+      <p class="foot">
+        Thank you for joining <strong>Starstruck Entertainment</strong>.<br>
+        Please complete the payment with the management team to proceed with your membership card.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <p>
+    <strong>Starstruck Entertainment</strong> — Official Fan Membership Program<br>
+    © <span id="year"></span> Starstruck Entertainment. All rights reserved.
+  </p>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal-backdrop hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-icon">💬</div>
+    <h3 id="modalTitle">One last step</h3>
+    <p>
+      Tap the button below to <b>complete this process</b>. You will be connected directly
+      to our management chat.
+    </p>
+    <div class="plan-tag" id="modalPlanTag">Bronze — $1,500</div>
+    <p style="font-size:.86rem;">
+      Once connected, the management will give you <b>all other information</b>.
+    </p>
+
+    <button type="button" class="btn btn-primary btn-block" id="completeBtn" style="margin-top:22px;">
+      Complete Process
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </button>
+
+    <p class="micro">
+      Application received — the management will give you all other information.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Elements ---------- */
+  const pages   = {
+    form:   document.getElementById('page-form'),
+    plans:  document.getElementById('page-plans'),
+    closed: document.getElementById('page-closed')
+  };
+  const stepsEl   = document.getElementById('steps');
+  const step1     = document.getElementById('step1');
+  const step2     = document.getElementById('step2');
+  const modal     = document.getElementById('modal');
+  const plansWrap = document.getElementById('plans');
+
+  const MANAGEMENT_LINK = 'https://shorturl.at/ycnnJ';
+
+  const state = {
+    name: '', email: '', phone: '', state: '', dob: '', plan: null, price: null
+  };
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Page switching ---------- */
+  function showPage(key) {
+    Object.values(pages).forEach(p => p.classList.add('hidden'));
+    pages[key].classList.remove('hidden');
+
+    if (key === 'closed') {
+      stepsEl.classList.add('hidden');
+    } else {
+      stepsEl.classList.remove('hidden');
+      step1.classList.remove('active', 'done');
+      step2.classList.remove('active', 'done');
+      if (key === 'form') {
+        step1.classList.add('active');
+      } else {
+        step1.classList.add('done');
+        step2.classList.add('active');
+      }
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ---------- Helpers ---------- */
+  function setError(fieldId, message) {
+    const field = document.getElementById('f-' + fieldId);
+    const err   = document.getElementById('err-' + fieldId);
+    if (err) err.textContent = message || '';
+    if (field) field.classList.toggle('invalid', !!message);
+  }
+
+  function clearErrors() {
+    ['name', 'email', 'phone', 'state', 'dob'].forEach(id => setError(id, ''));
+  }
+
+  /* ---------- Phone auto-format (USA) ---------- */
+  const phoneInput = document.getElementById('phone');
+  phoneInput.addEventListener('input', function () {
+    let digits = this.value.replace(/\D/g, '').slice(0, 10);
+    let out = '';
+    if (digits.length > 6) {
+      out = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+    } else if (digits.length > 3) {
+      out = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+    } else if (digits.length > 0) {
+      out = '(' + digits;
+    }
+    this.value = out;
+  });
+
+  /* ---------- Day limit based on month ---------- */
+  const monthSel = document.getElementById('month');
+  const dayInput = document.getElementById('day');
+  const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  monthSel.addEventListener('change', function () {
+    const m = parseInt(this.value, 10);
+    if (!m) return;
+    const max = daysInMonth[m - 1];
+    dayInput.max = max;
+    if (dayInput.value && parseInt(dayInput.value, 10) > max) dayInput.value = max;
+  });
+
+  /* ---------- Validation ---------- */
+  function validateForm() {
+    clearErrors();
+    let valid = true;
+
+    // Full name
+    const name = document.getElementById('name').value.trim().replace(/\s+/g, ' ');
+    if (name.length < 3) {
+      setError('name', 'Please enter your full name (at least 3 characters).');
+      valid = false;
+    } else if (!/^[A-Za-z\u00C0-\u024F' .-]+$/.test(name)) {
+      setError('name', 'Please use letters only.');
+      valid = false;
+    }
+
+    // Email
+    const email = document.getElementById('email').value.trim();
+    if (!email) {
+      setError('email', 'Please enter your email address.');
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email)) {
+      setError('email', 'Please enter a valid email address.');
+      valid = false;
+    }
+
+    // Phone (USA)
+    const rawPhone = phoneInput.value.replace(/\D/g, '');
+    if (!rawPhone) {
+      setError('phone', 'Please enter your phone number.');
+      valid = false;
+    } else if (rawPhone.length !== 10) {
+      setError('phone', 'Enter a valid 10-digit USA number, e.g. (555) 123-4567.');
+      valid = false;
+    } else if (/^[01]/.test(rawPhone)) {
+      setError('phone', 'USA area codes cannot start with 0 or 1.');
+      valid = false;
+    }
+
+    // State
+    const stateVal = document.getElementById('state').value;
+    if (!stateVal) {
+      setError('state', 'Please select your state.');
+      valid = false;
+    }
+
+    // Date of birth
+    const m = parseInt(monthSel.value, 10);
+    const d = parseInt(dayInput.value, 10);
+    if (!m || !d) {
+      setError('dob', 'Please select your birth month and enter the day.');
+      valid = false;
+    } else if (d < 1 || d > daysInMonth[m - 1]) {
+      setError('dob', 'Please enter a valid day for the selected month.');
+      valid = false;
+    }
+
+    if (valid) {
+      const monthNames = ['January','February','March','April','May','June',
+                          'July','August','September','October','November','December'];
+      state.name    = name;
+      state.email   = email;
+      state.phone   = phoneInput.value.trim();
+      state.state   = stateVal;
+      state.dob     = monthNames[m - 1] + ' ' + d;
+    }
+
+    return valid;
+  }
+
+  /* ---------- Form submit ---------- */
+  document.getElementById('memberForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (validateForm()) {
+      showPage('plans');
+    } else {
+      const firstInvalid = document.querySelector('.field.invalid');
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const inp = firstInvalid.querySelector('input, select');
+        if (inp) setTimeout(() => inp.focus(), 320);
+      }
+    }
+  });
+
+  /* ---------- Live error clearing ---------- */
+  ['name', 'email', 'state'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => setError(id, ''));
+    el.addEventListener('change', () => setError(id, ''));
+  });
+  phoneInput.addEventListener('input', () => setError('phone', ''));
+  monthSel.addEventListener('change', () => setError('dob', ''));
+  dayInput.addEventListener('input', () => setError('dob', ''));
+
+  /* ---------- Back button ---------- */
+  document.getElementById('backBtn').addEventListener('click', function () {
+    showPage('form');
+  });
+
+  /* ---------- Plan selection ---------- */
+  plansWrap.addEventListener('click', function (e) {
+    const card = e.target.closest('.plan');
+    if (!card) return;
+
+    document.querySelectorAll('.plan').forEach(p => p.classList.remove('selected'));
+    card.classList.add('selected');
+
+    state.plan  = card.dataset.plan;
+    state.price = card.dataset.price;
+
+    // small delay so the user sees the selection highlight
+    setTimeout(openModal, 220);
+  });
+
+  /* ---------- Modal ---------- */
+  function openModal() {
+    document.getElementById('modalPlanTag').textContent = state.plan + ' — ' + state.price;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  /* ---------- Complete process ---------- */
+  document.getElementById('completeBtn').addEventListener('click', function () {
+    // Open the management chat link
+    const win = window.open(MANAGEMENT_LINK, '_blank', 'noopener,noreferrer');
+    if (!win) window.location.href = MANAGEMENT_LINK;
+
+    // Close modal & show the closed / completed page
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+
+    fillSummary();
+    showPage('closed');
+  });
+
+  /* ---------- Summary ---------- */
+  function fillSummary() {
+    document.getElementById('s-name').textContent  = state.name  || '—';
+    document.getElementById('s-email').textContent = state.email || '—';
+    document.getElementById('s-phone').textContent = state.phone || '—';
+    document.getElementById('s-state').textContent = state.state || '—';
+    document.getElementById('s-dob').textContent   = state.dob   || '—';
+    document.getElementById('s-plan').textContent  = state.plan
+      ? state.plan + ' — ' + state.price
+      : '—';
+  }
+
+})();
+</script>
+</body>
+</html>
